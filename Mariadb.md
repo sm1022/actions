@@ -37,3 +37,7 @@ revoke select,update,delete,insert on database.table from username@localhost;
 ```
 show grants for username@localhost;
 ```
+### 开启远程访问
+```
+grant all privileges on *.* to 'root'@'%' identified by 'root' with grant option;
+```
