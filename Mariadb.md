@@ -41,3 +41,26 @@ show grants for username@localhost;
 ```
 grant all privileges on *.* to 'root'@'%' identified by 'root' with grant option;
 ```
+### 修改默认字符集
+查看默认字符集
+```
+SHOW VARIABLES LIKE ‘character%’;
+```
+在/etc/my.cnf配置文件中加入如下内容
+```
+[client]
+port = 3306
+socket = /var/lib/mysql/mysql.sock
+default-character-set=utf8
+[mysqld]
+port = 3306
+socket = /var/lib/mysql/mysql.sock
+character-set-server=utf8
+[mysql]
+no-auto-rehash
+default-character-set=utf8
+```
+重启mysql服务
+```
+service mysql restart
+```
