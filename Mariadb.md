@@ -1,4 +1,10 @@
-### 首页安装完成进行安全初始化操作
+### 安装
+yum install mariadb mariadb-server
+
+### 启动服务（随系统启动）
+systemctl start mariadb
+systemctl enable mariadb
+### 首次安装完成进行安全初始化操作
 ```
 mysql_secure_installation
 ```
@@ -44,7 +50,7 @@ grant all privileges on *.* to 'root'@'%' identified by 'root' with grant option
 ### 修改默认字符集
 查看默认字符集
 ```
-SHOW VARIABLES LIKE ‘character%’;
+SHOW VARIABLES LIKE 'character%';
 ```
 在/etc/my.cnf配置文件中加入如下内容
 ```
